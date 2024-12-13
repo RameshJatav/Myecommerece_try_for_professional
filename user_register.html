@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+ <link rel="icon" href="./image/my_logoU-removebg-preview.png">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        .hover\:shadow-blue {
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.5); /* Example blue shadow */
+        }
+    </style>
+</head>
+<body class="bg-gray-900">
+    
+    <header class="bg-blue-300  shadow-md">
+        <div class="container mx-auto flex justify-between items-center py-4 px-6">
+            <div class="text-xl font-bold">
+                <a href="#" class="text-gray-800"> <samp class="text-blue-600 " >R</samp>am<samp class="text-red-600 " >esh </samp> <i class="fa-solid fa-heart-pulse hover:text-red-600"></i></a>
+            </div> 
+            <nav class="hidden md:flex space-x-6">
+                <a href="./index.html" class="text-gray-800 text-2xl hover:text-white">Home</a>
+                <a href="./shopping.html" class="text-gray-800 text-2xl hover:text-white">Shopping</a>
+                <a href="#" class="text-gray-800 text-2xl hover:text-white">About</a>
+                <a href="#" class="text-gray-800 text-2xl hover:text-white">Contact</a>
+                <a href="./carts.html" class="text-gray-800 text-2xl hover:text-white"> <i class="fa-solid fa-cart-shopping"></i> </a>               
+                <a href="./wishlist.html" class="text-gray-800 text-2xl hover:text-white">  <i class="fa-solid fa-heart"></i> </a>
+                <a href="./user.html" class="text-gray-800 text-2xl hover:text-white"> <i class="fa-solid fa-user-pen"></i> </a>
+
+            </nav>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden">
+            <nav class="flex flex-col space-y-4 p-4">
+                <a href="./index.html" class="text-gray-800 text-2xl hover:text-white">Home</a>
+                <a href="./shopping.html" class="text-gray-800 text-2xl hover:text-white">Shopping</a>
+                <a href="#" class="text-gray-800 text-2xl hover:text-white">About</a>
+                <a href="#" class="text-gray-800 text-2xl hover:text-white">Contact</a>
+                <a href="./carts.html" class="text-gray-800 text-2xl hover:text-white "> <i class="fa-solid fa-cart-shopping"></i> </a>
+                <a href="./wishlist.html" class="text-gray-800 text-2xl hover:text-white">  <i class="fa-solid fa-heart"></i> </a>
+                <a href="./user.html" class="text-gray-800 text-2xl hover:text-white"> <i class="fa-solid fa-user-pen"></i> </a>
+
+            </nav>
+        </div>
+    </header>
+
+
+
+     <section class="py-10">
+    
+
+        <div class="max-w-md mx-auto py-4 px-2 hover:shadow-blue">
+
+            <div class="flex flex-col items-center space-y-4">
+                <div class="relative">
+                    <!-- Profile Picture -->
+                    <img src="./image/AMIT.jpg" alt="Profile Photo Preview" id="profilePic" class="w-32 h-32 rounded-full object-cover border-4 border-gray-200 shadow-md">
+                    
+                    <!-- Upload Button -->
+                    <input type="file" id="photoUpload" class="absolute bottom-0 right-0 opacity-0" onchange="previewImage(event)">
+                    <label for="photoUpload" class="absolute bottom-0 right-0 bg-blue-600 text-white p-2 rounded-full cursor-pointer hover:bg-blue-700 transition-all duration-300">
+                        <i class="fas fa-camera"></i>
+                    </label>
+                </div>
+    
+            </div>
+
+            <h2 class="text-3xl font-bold mb-4 text-center text-blue-300">User Registration</h2>
+            <hr class="mt-0 border-blue-300 hover:shadow-blue">
+            <form id="registrationForm" class="space-y-6 mt-4">
+                <!-- First Name Field -->
+                <div>
+                    <label for="firstName" class="block text-sm font-semibold text-white">First Name</label>
+                    <input type="text" id="firstName" name="firstName" class="block w-full rounded-md border-gray-300 px-3 py-2 focus:outline-none focus:ring focus:border-blue-300" required="">
+                </div>
+    
+                <!-- Last Name Field -->
+                <div>
+                    <label for="lastName" class="block text-sm font-semibold text-white">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" class="block w-full rounded-md border-gray-300 px-3 py-2 focus:outline-none focus:ring focus:border-blue-300" required="">
+                </div>
+    
+                <!-- Email Field -->
+                <div>
+                    <label for="email" class="block text-sm font-semibold text-white">Email</label>
+                    <input type="email" id="email" name="email" class="block w-full rounded-md border-gray-300 px-3 py-2 focus:outline-none focus:ring focus:border-blue-300" required="">
+                </div>
+    
+                <!-- Password Field -->
+                <div>
+                    <label for="password" class="block text-sm font-semibold text-white">Password</label>
+                    <input type="password" id="password" name="password" class="block w-full rounded-md border-gray-300 px-3 py-2 focus:outline-none focus:ring focus:border-blue-300" required="">
+                </div>
+    
+                <!-- User Photo Upload with Preview -->
+             
+                    
+                <div class="flex sm:gap-52 gap-8">
+                    <button type="submit" class="hover:underline border border-yellow-300 bg-yellow-600 text-white text-2xl px-5 py-2 rounded-full hover:text-yellow-600 hover:bg-transparent">Register</button>
+                    <a href="./user_login.html" class="underline text-white text-2xl px-5 py-2 rounded-full hover:text-yellow-600 hover:bg-transparent">Login</a>
+                </div>
+                <p class="text-yellow-300">If you are already registered, click the "Login" button!</p>
+            </form>
+        </div>
+    </section>
+    
+    
+
+<footer class="bg-blue-300 py-6 mt-8">
+    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+        <div class="text-gray-800 text-center md:text-left">
+            <p class="text-lg font-bold">Ramesh © 2024</p>
+            <p class="text-sm">All rights reserved.</p>
+        </div>
+        <nav class="mt-4 md:mt-0">
+            <ul class="flex space-x-6">
+                <li><a href="#" class="text-gray-800 hover:text-white">Privacy Policy</a></li>
+                <li><a href="#" class="text-gray-800 hover:text-white">Terms of Service</a></li>
+                <li><a href="#" class="text-gray-800 hover:text-white">Help</a></li>
+            </ul>
+        </nav>
+        <div class="mt-4 md:mt-0">
+            <a href="#" class="text-gray-800 hover:text-white"><i class="fab fa-facebook-square"></i></a>
+            <a href="#" class="ml-4 text-gray-800 hover:text-white"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="ml-4 text-gray-800 hover:text-white"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+</script>
+
+</body>
+</html>
